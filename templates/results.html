@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情绪识别结果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>情绪识别结果</h1>
+
+        {% if message %}
+            <p class="info-message">{{ message }}</p>
+        {% endif %}
+
+        <div class="image-container">
+            <div class="image-card">
+                <h2>原始图片</h2>
+                {% if original_image %}
+                <img src="{{ url_for('static', filename='uploads/' + original_image) }}" alt="原始图片">
+                {% else %}
+                <p>无法显示原始图片。</p>
+                {% endif %}
+            </div>
+            
+            {% if processed_image %}
+            <div class="image-card">
+                <h2>处理后图片</h2>
+                <img src="{{ url_for('static', filename='uploads/' + processed_image) }}" alt="处理后图片">
+            </div>
+            {% elif not message and results %} 
+            <!-- 如果没有特定消息 (如未检测到人脸) 但有结果 (虽然可能为空)，说明处理了但可能没画图 -->
+            <div class="image-card">
+                <h2>处理后图片</h2>
+                 <p>处理后的图片未生成或未标记人脸。</p>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if results %}
+            <h2>检测到的情绪:</h2>
+            <ul class="results-list">
+            {% for result in results %}
+                <li>
+                    <span class="emotion-label">{{ result.emotion | capitalize }}</span>
+                    <!-- <span class="emotion-box">(位置: {{ result.box }})</span> -->
+                </li>
+            {% endfor %}
+            </ul>
+        {% elif not message %} 
+            <!-- 如果没有特定消息，也没有结果，则显示通用消息 -->
+            <p>未能从图片中提取情绪信息。</p>
+        {% endif %}
+        
+        <a href="{{ url_for('index') }}" class="button-like">分析另一张图片</a>
+    </div>
+</body>
+</html>

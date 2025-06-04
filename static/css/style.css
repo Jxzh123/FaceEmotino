@@ -1,0 +1,175 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-message, .info-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.info-message {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* 间距 */
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%; /* 使标签宽度与容器一致 */
+    max-width: 300px; /* 限制最大宽度 */
+}
+
+.file-input-wrapper input[type=file] {
+    font-size: 100px; /* 用于覆盖默认样式，使其可点击 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0; /* 使原始input透明 */
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.file-input-label {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: calc(100% - 32px); /* 减去padding */
+    transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+    background-color: #0056b3;
+}
+
+
+.submit-button, .button-like {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* For <a> tags styled as buttons */
+    display: inline-block; /* For <a> tags */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover, .button-like:hover {
+    background-color: #218838;
+}
+
+.note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 15px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.image-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    text-align: center;
+    flex-basis: calc(50% - 20px); /* 两个图片卡片并排，减去间距 */
+    box-sizing: border-box;
+}
+
+.image-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.results-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.results-list li {
+    background: #e9ecef;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.emotion-label {
+    font-weight: bold;
+}
+
+.emotion-box {
+    font-size: 0.8em;
+    color: #555;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-card {
+        flex-basis: 100%; /* 在小屏幕上，图片卡片占满宽度 */
+        max-width: 300px; /* 限制图片最大宽度 */
+    }
+     .file-input-wrapper {
+        max-width: none; /* 在小屏幕上允许标签占满 */
+    }
+} 

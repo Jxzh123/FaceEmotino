@@ -1,0 +1,32 @@
+# Core Application Framework
+Flask>=2.0
+
+# Computer Vision and Image Processing
+opencv-python>=4.5
+Pillow>=9.0.0 # 通常由opencv或fer的依赖拉取，但显式指定较新版本无害
+
+# Emotion Recognition
+fer # Let pip choose the latest stable (e.g., 22.5.1)
+tensorflow>=2.5 # TF is a core dependency for fer
+mtcnn>=0.1.0    # For robust face detection within fer
+
+# Video Processing (specific version for fer compatibility)
+moviepy==1.0.3
+
+# Numerical Operations
+numpy>=1.20
+
+# --- Common transitive dependencies (usually handled automatically) ---
+# Werkzeug (Flask)
+# Jinja2 (Flask)
+# itsdangerous (Flask)
+# click (Flask)
+# MarkupSafe (Jinja2)
+# blinker (Flask)
+# Keras (TensorFlow)
+# h5py (TensorFlow/Keras)
+# imageio (moviepy)
+# decorator (moviepy)
+# tqdm (moviepy/fer)
+# requests (moviepy/fer)
+# proglog (moviepy)
