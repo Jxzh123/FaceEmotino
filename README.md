@@ -1,4 +1,4 @@
-# FaceEmotino
+# FaceEmotion
 a app can identify people face emotion,flask,python,html,css
 ## 以下是构建运行步骤
 ```bash
